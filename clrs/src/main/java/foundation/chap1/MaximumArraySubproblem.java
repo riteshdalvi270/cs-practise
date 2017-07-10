@@ -8,7 +8,7 @@ public class MaximumArraySubproblem {
 
     public static void main(String args[]) {
 
-        int prices[] = {7,1,5,3,6,4};
+        int prices[] = {13,-3,-25,20,-3,-16,-23,18,20,-7,12,-5,-22,15,-4,7};
 
         int maxStock = maximumArraySubProblem(prices,0,prices.length-1);
 
@@ -17,8 +17,8 @@ public class MaximumArraySubproblem {
 
     private static int maximumArraySubProblem(int[] prices, int low, int high) {
 
-        if(low>high) {
-            return 0;
+        if(low==high) {
+            return prices[low];
         }
 
         int mid = (low+high)/2;
@@ -54,13 +54,13 @@ public class MaximumArraySubproblem {
         sum = 0;
         int maxSumSoFarRight = 0;
 
-        for(int j=high;j>=mid;j--) {
+        for(int j=mid+1;j<=high;j++) {
 
             sum = sum + prices[j];
 
-            if(sum >maxSumSoFarLeft) {
-                maxSumSoFarLeft = sum;
-                left = i;
+            if(sum > maxSumSoFarRight) {
+                maxSumSoFarRight = sum;
+                right = j;
             }
         }
 
