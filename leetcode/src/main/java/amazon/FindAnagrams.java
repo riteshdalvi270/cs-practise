@@ -9,7 +9,7 @@ import java.util.List;
  */
 public class FindAnagrams {
     public static void main(String args[]) {
-        final String input = "cbababacd";
+        final String input = "cababcbacd";
         final String p = "abc";
 
         List<Integer> output = findAnagramsBySlidingWindow(input,p);
