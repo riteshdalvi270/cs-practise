@@ -1,16 +1,15 @@
 package amazon;
 
-import java.util.Map;
-
 /**
- * Using tie implement word dictionary.
- * Created by ritesh on 7/16/17.
+ * Using tie implement word dictionary. Created by ritesh on 7/16/17.
  */
-public class WordDictionary {
+public class WordDictionary
+{
 
     static Trie trie = new Trie();
 
-    public static void main(String args[]) {
+    public static void main(String args[])
+    {
 
         addWord("bab");
         addWord("dad");
@@ -19,53 +18,64 @@ public class WordDictionary {
         searchWord("dad");
     }
 
-    private static void addWord(String word) {
+    private static void addWord(String word)
+    {
 
-        char[] wordChar  = word.toCharArray();
+        char[] wordChar = word.toCharArray();
 
         Trie[] children = trie.getChildren();
 
-        for(int i=0; i<word.length();i++) {
+        for (int i = 0; i < word.length(); i++)
+        {
 
             char in = wordChar[i];
 
             int position = in - 'a';
 
             Trie child = null;
-            if(children[position] == null) {
+            if (children[position] == null)
+            {
 
                 child = new Trie(in);
 
                 children[position] = child;
 
-            }else {
+            }
+            else
+            {
 
                 child = children[position];
 
                 children = child.getChildren();
             }
 
-            if(i==word.length()-1) {
+            if (i == word.length() - 1)
+            {
                 child.isLeaf = true;
             }
         }
     }
 
-    private static boolean searchWord(String word) {
+    private static boolean searchWord(String word)
+    {
 
         char[] wordChar = word.toCharArray();
 
         Trie[] children = trie.getChildren();
         Trie childTree = null;
-        for(int i=0;i<wordChar.length;i++) {
+        for (int i = 0; i < wordChar.length; i++)
+        {
 
             char in = wordChar[i];
 
-            int position = in -'a';
+            int position = in - 'a';
 
-            if(children[position] == null) {
+            if (children[position] == null)
+            {
                 return false;
-            }else {
+            }
+            else
+            {
 
                 childTree = children[position];
 
@@ -73,42 +83,49 @@ public class WordDictionary {
             }
         }
 
-        if(childTree!=null && childTree.isLeaf) {
+        if (childTree != null && childTree.isLeaf)
+        {
             return true;
         }
 
         return false;
     }
 
-
-    static class Trie {
+    static class Trie
+    {
 
         char value;
         Trie[] children;
         boolean isLeaf;
 
-        Trie () {
+        Trie()
+        {
             children = new Trie[26];
         }
 
-        Trie(char value) {
+        Trie(char value)
+        {
             this.value = value;
             children = new Trie[26];
         }
 
-        public char getValue() {
+        public char getValue()
+        {
             return value;
         }
 
-        public void setValue(char value) {
+        public void setValue(char value)
+        {
             this.value = value;
         }
 
-        public Trie[] getChildren() {
+        public Trie[] getChildren()
+        {
             return children;
         }
 
-        public void setChildren(Trie[] children) {
+        public void setChildren(Trie[] children)
+        {
             this.children = children;
         }
     }

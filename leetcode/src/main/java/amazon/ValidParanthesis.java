@@ -3,63 +3,86 @@ package amazon;
 import java.util.Stack;
 
 /**
- * Determine if paranthesis are valid. Ordering matters. Open and closing together.
- * Created by ritesh on 7/8/17.
+ * Determine if paranthesis are valid. Ordering matters. Open and closing together. Created by ritesh on 7/8/17.
  */
-public class ValidParanthesis {
+public class ValidParanthesis
+{
 
-    public static void main(String args[]) {
+    public static void main(String args[])
+    {
 
         final String input = "([]";
 
         System.out.print(isValid(input));
     }
 
-    public static boolean isValid(String s) {
+    public static boolean isValid(String s)
+    {
 
-        if (s == null || s.length() == 0) {
+        if (s == null || s.length() == 0)
+        {
             return true;
         }
 
         char in[] = s.toCharArray();
         final Stack<Character> stack = new Stack<>();
 
-        for(int i=0;i<s.length();i++) {
+        for (int i = 0; i < s.length(); i++)
+        {
 
-            if(in[i] == '}') {
+            if (in[i] == '}')
+            {
 
-                if(stack.isEmpty()) {
+                if (stack.isEmpty())
+                {
                     return false;
-                }else {
+                }
+                else
+                {
                     final Character poppedCharacter = stack.pop();
 
-                    if(poppedCharacter != '{') {
+                    if (poppedCharacter != '{')
+                    {
                         return false;
                     }
                 }
-            }else if(in[i] == ']') {
+            }
+            else if (in[i] == ']')
+            {
 
-                if(stack.isEmpty()) {
+                if (stack.isEmpty())
+                {
                     return false;
-                }else {
+                }
+                else
+                {
                     final Character poppedCharacter = stack.pop();
 
-                    if(poppedCharacter != '[') {
+                    if (poppedCharacter != '[')
+                    {
                         return false;
                     }
                 }
-            }else if(in[i] == ')') {
+            }
+            else if (in[i] == ')')
+            {
 
-                if(stack.isEmpty()) {
+                if (stack.isEmpty())
+                {
                     return false;
-                }else {
+                }
+                else
+                {
                     final Character poppedCharacter = stack.pop();
 
-                    if(poppedCharacter != '(') {
+                    if (poppedCharacter != '(')
+                    {
                         return false;
                     }
                 }
-            }else {
+            }
+            else
+            {
                 stack.push(in[i]);
             }
         }

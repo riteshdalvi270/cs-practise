@@ -4,13 +4,14 @@ import java.util.ArrayDeque;
 import java.util.Queue;
 
 /**
- * Serialize and deserialize binary tree
- * Created by ritesh on 7/4/17.
+ * Serialize and deserialize binary tree Created by ritesh on 7/4/17.
  */
 
-public class SerializeDeSerializeBinaryTree {
+public class SerializeDeSerializeBinaryTree
+{
 
-    public static void main(String args[]) {
+    public static void main(String args[])
+    {
 
         TreeNode node = new TreeNode(1);
 
@@ -22,9 +23,11 @@ public class SerializeDeSerializeBinaryTree {
         System.out.print(ot.value);
     }
 
-    private static String serializeBinaryTree(final TreeNode root) {
+    private static String serializeBinaryTree(final TreeNode root)
+    {
 
-        if(root == null) {
+        if (root == null)
+        {
             return "";
         }
 
@@ -33,25 +36,33 @@ public class SerializeDeSerializeBinaryTree {
         queue.add(root);
 
         final StringBuilder stringBuilder = new StringBuilder();
-        
-        while(!queue.isEmpty()) {
+
+        while (!queue.isEmpty())
+        {
 
             final TreeNode node = queue.remove();
 
-            if(node!=null) {
+            if (node != null)
+            {
                 stringBuilder.append(node.value);
                 stringBuilder.append(",");
 
-                if(node.left!=null) {
+                if (node.left != null)
+                {
                     queue.add(node.left);
-                }else {
+                }
+                else
+                {
                     stringBuilder.append("null");
                     stringBuilder.append(",");
                 }
 
-                if(node.right!=null) {
+                if (node.right != null)
+                {
                     queue.add(node.right);
-                }else {
+                }
+                else
+                {
                     stringBuilder.append("null");
                     stringBuilder.append(",");
                 }
@@ -59,12 +70,13 @@ public class SerializeDeSerializeBinaryTree {
             }
         }
 
-        stringBuilder.deleteCharAt(stringBuilder.length()-1);
+        stringBuilder.deleteCharAt(stringBuilder.length() - 1);
 
         return stringBuilder.toString();
     }
 
-    private static TreeNode deserializeBinaryTree(final String value) {
+    private static TreeNode deserializeBinaryTree(final String value)
+    {
 
         final String[] split = value.split(",");
 
@@ -75,30 +87,38 @@ public class SerializeDeSerializeBinaryTree {
 
         int i = 1;
 
-        if(!queue.isEmpty()) {
+        if (!queue.isEmpty())
+        {
 
-            if(i==split.length) {
+            if (i == split.length)
+            {
                 return node;
             }
 
             TreeNode queueNode = queue.remove();
 
-            if(!"null".equals(split[i])) {
+            if (!"null".equals(split[i]))
+            {
 
                 queueNode.left = new TreeNode(Integer.valueOf(split[i]));
                 queue.add(queueNode.left);
                 i++;
-            }else {
+            }
+            else
+            {
                 queueNode.left = null;
                 i++;
             }
 
-            if(!"null".equals(split[i])) {
+            if (!"null".equals(split[i]))
+            {
 
                 queueNode.right = new TreeNode(Integer.valueOf(split[i]));
                 queue.add(queueNode.right);
                 i++;
-            }else {
+            }
+            else
+            {
 
                 queueNode.right = null;
                 i++;
@@ -108,17 +128,17 @@ public class SerializeDeSerializeBinaryTree {
         return node;
     }
 
-
-    static class TreeNode {
+    static class TreeNode
+    {
         int value;
         TreeNode left;
         TreeNode right;
 
-        TreeNode(int value) {
+        TreeNode(int value)
+        {
             this.value = value;
             this.left = null;
-            this.right=null;
+            this.right = null;
         }
     }
 }
-

@@ -1,17 +1,18 @@
 package graph;
 
 /**
- * Detect cycle in an undirected graph using union-find.
- * Created by ritesh on 7/14/17.
+ * Detect cycle in an undirected graph using union-find. Created by ritesh on 7/14/17.
  */
-public class DetectCycleInUndirectedGraphUnionFind {
+public class DetectCycleInUndirectedGraphUnionFind
+{
 
     static int V = 5;
     static int E = 5;
 
-    public static void main(String args[]) {
+    public static void main(String args[])
+    {
 
-        final Graph graph = new Graph(V,E);
+        final Graph graph = new Graph(V, E);
 
         graph.edges[0].src = 0;
         graph.edges[0].dest = 1;
@@ -25,62 +26,74 @@ public class DetectCycleInUndirectedGraphUnionFind {
         graph.edges[3].src = 2;
         graph.edges[3].dest = 4;
 
-        if(isCycle(graph)) {
+        if (isCycle(graph))
+        {
             System.out.println("Cycle detected");
-        }else{
+        }
+        else
+        {
             System.out.println("Cycle not detected");
         }
     }
 
-    private static boolean isCycle(final Graph graph) {
+    private static boolean isCycle(final Graph graph)
+    {
 
         int parent[] = new int[graph.V];
 
-        for(int i=0;i<graph.V;i++) {
+        for (int i = 0; i < graph.V; i++)
+        {
 
             parent[i] = -1;
         }
 
-        for(int i=0;i<graph.E;i++) {
+        for (int i = 0; i < graph.E; i++)
+        {
 
             int src = graph.edges[i].src;
             int dest = graph.edges[i].dest;
 
-            if(find(parent,src) ==  find(parent,dest)) {
+            if (find(parent, src) == find(parent, dest))
+            {
                 return true;
             }
 
-            union(parent,src,dest);
+            union(parent, src, dest);
         }
 
         return false;
     }
 
-    private static int find(int[] parent, int i) {
+    private static int find(int[] parent, int i)
+    {
 
-        if(parent[i] == -1) {
+        if (parent[i] == -1)
+        {
             return i;
         }
 
-        return find(parent,parent[i]);
+        return find(parent, parent[i]);
     }
 
-    private static void union(int[] parent,int x, int y) {
+    private static void union(int[] parent, int x, int y)
+    {
 
-        int xParent = find(parent,x);
-        int yParent = find(parent,y);
+        int xParent = find(parent, x);
+        int yParent = find(parent, y);
 
         parent[xParent] = yParent;
     }
 
-    static class Graph {
+    static class Graph
+    {
 
         int V;
         int E;
 
         Edge[] edges;
 
-        public Graph(final int V, int E) {
+        public Graph(final int V, int E)
+        {
 
             this.V = V;
             this.E = E;
@@ -91,7 +104,8 @@ public class DetectCycleInUndirectedGraphUnionFind {
         }
     }
 
-    static class Edge {
+    static class Edge
+    {
         int src;
         int dest;
     }

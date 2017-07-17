@@ -12,6 +12,15 @@ public class Graph
     Vertex[] vertices;
     Map<Vertex, List<Vertex>> adj;
 
+    static enum Color
+    {
+        WHITE,
+
+        BLACK,
+
+        GREY
+    }
+
     static class Vertex
     {
         int value;
@@ -22,14 +31,5 @@ public class Graph
         {
 
         }
-    }
-
-    static enum Color
-    {
-        WHITE,
-
-        BLACK,
-
-        GREY
     }
 }

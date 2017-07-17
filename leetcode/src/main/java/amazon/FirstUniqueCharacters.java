@@ -1,19 +1,21 @@
 package amazon;
 
 /**
- * First unique characters.
- * Created by ritesh on 7/9/17.
+ * First unique characters. Created by ritesh on 7/9/17.
  */
-public class FirstUniqueCharacters {
+public class FirstUniqueCharacters
+{
 
-    public static void main(String args[]) {
+    public static void main(String args[])
+    {
 
         final String input = "leetcode";
 
         System.out.println(firstUniqueCharacter(input));
     }
 
-    private static int firstUniqueCharacter(final String s) {
+    private static int firstUniqueCharacter(final String s)
+    {
 
         char[] in = s.toCharArray();
 
@@ -21,33 +23,42 @@ public class FirstUniqueCharacters {
 
         boolean ascii[] = new boolean[128];
 
-        for(int i=0; i<in.length; i++) {
+        for (int i = 0; i < in.length; i++)
+        {
 
             char ch = in[i];
 
-            if(ascii[ch]) {
+            if (ascii[ch])
+            {
                 continue;
             }
 
-            if(index!=-1) {
+            if (index != -1)
+            {
                 ascii[ch] = true;
                 continue;
             }
 
-            int startIndex = i+1;
-            int endIndex = in.length-1;
+            int startIndex = i + 1;
+            int endIndex = in.length - 1;
 
-            while(startIndex <= endIndex) {
+            while (startIndex <= endIndex)
+            {
 
-                if(ch == in[startIndex]) {
+                if (ch == in[startIndex])
+                {
                     ascii[ch] = true;
                     index = -1;
                     break;
-                }else if(ch == in[endIndex]) {
+                }
+                else if (ch == in[endIndex])
+                {
                     ascii[ch] = true;
                     index = -1;
                     break;
-                }else {
+                }
+                else
+                {
                     index = i;
                 }
 
@@ -56,8 +67,9 @@ public class FirstUniqueCharacters {
             }
         }
 
-        if(!ascii[s.charAt(s.length()-1)]) {
-            return s.length()-1;
+        if (!ascii[s.charAt(s.length() - 1)])
+        {
+            return s.length() - 1;
         }
 
         return index;

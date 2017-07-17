@@ -1,12 +1,13 @@
 package amazon;
 
 /**
- * Longest substring without repeating characters.
- * Created by ritesh on 7/5/17.
+ * Longest substring without repeating characters. Created by ritesh on 7/5/17.
  */
-public class LongestSubstringWithoutRepeatingCharacters {
+public class LongestSubstringWithoutRepeatingCharacters
+{
 
-    public static void main(String args[]) {
+    public static void main(String args[])
+    {
 
         final String input = "abcabcbb";
 
@@ -15,7 +16,8 @@ public class LongestSubstringWithoutRepeatingCharacters {
         System.out.println(max);
     }
 
-    private static int longestSubstringWithoutRepeatedCharacters(final String s) {
+    private static int longestSubstringWithoutRepeatedCharacters(final String s)
+    {
 
         boolean[] ascii = new boolean[128];
 
@@ -25,11 +27,14 @@ public class LongestSubstringWithoutRepeatingCharacters {
         int count = 0;
         int previousIndex = -1;
 
-        for(int i = 0; i<inputChars.length; i++) {
+        for (int i = 0; i < inputChars.length; i++)
+        {
 
-            if(ascii[inputChars[i]]) {
+            if (ascii[inputChars[i]])
+            {
 
-                if(count > max) {
+                if (count > max)
+                {
                     max = count;
                 }
 
@@ -37,9 +42,12 @@ public class LongestSubstringWithoutRepeatingCharacters {
                 count = 0;
                 i = previousIndex;
                 previousIndex = -1;
-            }else {
+            }
+            else
+            {
 
-                if(previousIndex == -1) {
+                if (previousIndex == -1)
+                {
                     previousIndex = i;
                 }
 
@@ -48,6 +56,6 @@ public class LongestSubstringWithoutRepeatingCharacters {
             }
         }
 
-        return count>max?count:max;
+        return count > max ? count : max;
     }
 }
