@@ -27,7 +27,7 @@ public class KLargestElementInAnArray
 
         heap.heapSize = heap.array.length;
 
-        buildMaxHeap(heap.array);
+        heapSort(heap);
     }
 
     private static void buildMaxHeap(int[] input)
@@ -35,7 +35,6 @@ public class KLargestElementInAnArray
 
         for (int i = (input.length - 1) / 2; i >= 0; i++)
         {
-
             maxHeapify(input, i);
         }
     }
@@ -57,7 +56,7 @@ public class KLargestElementInAnArray
             largest = index;
         }
 
-        if (right < input.length && input[right] > input[index])
+        if (right < input.length && input[right] > input[largest])
         {
             largest = right;
         }
@@ -70,6 +69,26 @@ public class KLargestElementInAnArray
         {
             maxHeapify(input, largest);
         }
+    }
+
+    private static void heapSort(final Heap heap)
+    {
+
+        buildMaxHeap(heap.array);
+
+        for (int i = heap.size - 1; i >= 0; i++)
+        {
+            exhange(heap.array, 1, i);
+            heap.heapSize = heap.heapSize - 1;
+            maxHeapify(heap.array, 1);
+        }
+    }
+
+    private static void exhange(int[] array, int i, int j)
+    {
+        int temp = array[i];
+        array[i] = array[j];
+        array[j] = temp;
     }
 
     static class Heap
