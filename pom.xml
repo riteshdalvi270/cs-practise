@@ -6,7 +6,7 @@
    <groupId>cs-practise</groupId>
    <artifactId>cs-practise</artifactId>
    <version>1.0-SNAPSHOT</version>
-
+   <packaging>pom</packaging>
    <dependencyManagement>
       <dependencies>
          <!-- https://mvnrepository.com/artifact/com.google.guava/guava -->
@@ -18,6 +18,11 @@
       </dependencies>
    </dependencyManagement>
 
+   <modules>
+      <module>clrs</module>
+      <module>geeksforgeeks</module>
+      <module>leetcode</module>
+   </modules>
 
    <build>
       <plugins>
