@@ -122,6 +122,8 @@ public class BinaryTreeOperation {
         // 2. node being deleted has one child
         // 3. node being deleted has two children.
 
+        return null;
+
     }
 
     static class Tree {
