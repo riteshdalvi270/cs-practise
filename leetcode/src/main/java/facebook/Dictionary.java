@@ -1,5 +1,8 @@
 package facebook;
 
+import java.util.HashMap;
+import java.util.Map;
+
 /**
  * Design a data structure that supports the following two operations:
 
@@ -38,6 +41,7 @@ public class Dictionary {
 
         public void addWord(String word) {
 
+            final Map<Integer,Character> alphabetsByPosition = new HashMap<>();
 
         }
 

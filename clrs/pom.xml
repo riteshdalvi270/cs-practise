@@ -10,6 +10,7 @@
    </parent>
    <modelVersion>4.0.0</modelVersion>
    <artifactId>clrs</artifactId>
+   <packaging>jar</packaging>
 
    <dependencies>
       <!-- https://mvnrepository.com/artifact/org.apache.commons/commons-lang3 -->

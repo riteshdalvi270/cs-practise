@@ -21,11 +21,23 @@
             <artifactId>commons-lang3</artifactId>
             <version>3.0</version>
          </dependency>
+         <!-- https://mvnrepository.com/artifact/com.google.collections/google-collections -->
+         <dependency>
+            <groupId>com.google.collections</groupId>
+            <artifactId>google-collections</artifactId>
+            <version>1.0-rc2</version>
+         </dependency>
+         <dependency>
+            <groupId>cs-practise</groupId>
+            <artifactId>assistant</artifactId>
+            <version>1.0-SNAPSHOT</version>
+         </dependency>
 
       </dependencies>
    </dependencyManagement>
 
    <modules>
+      <module>assistant</module>
       <module>clrs</module>
       <module>geeksforgeeks</module>
       <module>leetcode</module>

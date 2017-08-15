@@ -10,6 +10,7 @@
       <relativePath>../pom.xml</relativePath>
    </parent>
    <artifactId>geeksforgeeks</artifactId>
+   <packaging>jar</packaging>
 
    <dependencies>
       <!-- https://mvnrepository.com/artifact/com.google.guava/guava -->

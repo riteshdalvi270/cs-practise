@@ -11,6 +11,7 @@
    </parent>
    <modelVersion>4.0.0</modelVersion>
    <artifactId>leetcode</artifactId>
+   <packaging>jar</packaging>
 
    <dependencies>
       <!-- https://mvnrepository.com/artifact/com.google.guava/guava -->
@@ -25,7 +26,17 @@
          <artifactId>commons-lang3</artifactId>
          <scope>compile</scope>
       </dependency>
+      <dependency>
+         <groupId>cs-practise</groupId>
+         <artifactId>assistant</artifactId>
+      </dependency>
 
+      <!-- https://mvnrepository.com/artifact/com.google.collections/google-collections -->
+      <dependency>
+         <groupId>com.google.collections</groupId>
+         <artifactId>google-collections</artifactId>
+         <scope>compile</scope>
+      </dependency>
 
    </dependencies>
 </project>
