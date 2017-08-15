@@ -11,9 +11,6 @@ public class TreeAssistant
 
     public Tree printTree(Tree node)
     {
-
-        Set<Integer> set = new HashSet<>();
-        set.contains()
         if (node == null)
         {
             return null;
