@@ -1,5 +1,8 @@
 package facebook;
 
+import java.util.HashSet;
+import java.util.Set;
+
 /**
  * Given an array nums and a target value k, find the maximum length of a subarray that sums to k. If there isn't one, return 0 instead.
 
