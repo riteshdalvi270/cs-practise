@@ -22,49 +22,42 @@ public class TopologicalSorting
         printStack(stack);
     }
 
-    private static void topologicalSorting(final Graph graph, final Stack<Vertex> stack)
-    {
+    private static void topologicalSorting(final Graph graph, final Stack<Vertex> stack) {
 
-        for (int vertexIndex = 0; vertexIndex < graph.vertices.length; vertexIndex++)
-        {
+        for(final Map.Entry<Vertex,List<Vertex>> entrySet : graph.adj.entrySet()) {
 
-            final Vertex startVertex = graph.vertices[vertexIndex];
-            if (!startVertex.visited)
-                topologicalSortingUtil(stack, graph.adj, startVertex);
-        }
-    }
+            Vertex vertex = entrySet.getKey();
+            List<Vertex> adj = entrySet.getValue();
 
-    private static void topologicalSortingUtil(Stack<Vertex> stack, Map<Vertex, List<Vertex>> adj, Vertex vertex)
-    {
-
-        final List<Vertex> vertices = adj.get(vertex);
-        for (final Vertex adjVertex : vertices)
-        {
-
-            if (!adjVertex.visited)
-            {
-
-                adjVertex.visited = true;
-                topologicalSortingUtil(stack, adj, adjVertex);
+            if(!vertex.visited) {
+                topologicalSorting(graph,adj,stack);
+                stack.push(vertex);
             }
-
-            stack.push(adjVertex);
         }
     }
 
-    private static void printStack(final Stack<Vertex> stack)
-    {
+    private static void topologicalSorting(final Graph graph,List<Vertex> adj, Stack<Vertex> stack) {
 
-        while (stack.isEmpty())
-        {
+        for(Vertex vertex : adj) {
 
-            System.out.print(stack.pop() + "->");
+            if(!vertex.visited) {
+                topologicalSorting(graph, graph.adj.get(vertex),stack);
+                vertex.visited = true;
+                stack.push(vertex);
+            }
+        }
+    }
+
+    private static void printStack(Stack<Vertex> stack) {
+
+        while(!stack.isEmpty()) {
+
+            System.out.println(stack.pop().value);
         }
     }
 
     static class Graph
     {
-
         Vertex[] vertices;
         Map<Vertex, List<Vertex>> adj;
     }
