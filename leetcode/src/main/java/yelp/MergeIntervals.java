@@ -77,9 +77,9 @@ public class MergeIntervals {
             newInterval = new Interval(intrv1.start, intrv2.end);
         }
 
-        intervals.add(i,newInterval);
+        intervals.set(i,newInterval);
         intervals.remove(j);
-        intervals.remove(j);
+        //intervals.remove(j);
     }
 
     private static class Interval {

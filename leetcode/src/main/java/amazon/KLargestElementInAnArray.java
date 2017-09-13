@@ -42,7 +42,7 @@ public class KLargestElementInAnArray
     private static void buildMaxHeap(Heap heap)
     {
 
-        for (int i = (heap.heapSize-1) / 2; i >= 0; i--)
+        for (int i = (heap.heapSize / 2)-1; i >= 0; i--)
         {
             maxHeapify(heap, i);
         }
@@ -51,21 +51,17 @@ public class KLargestElementInAnArray
     private static void maxHeapify(Heap heap, int index)
     {
 
-        int left = 2 * index;
-        int right = 2 * index + 1;
+        int left = 2 * index + 1;
+        int right = 2 * index + 2;
 
-        int largest = 0;
+        int largest = index;
 
-        if (left <= heap.heapSize && heap.array[left] > heap.array[index])
+        if (left < heap.heapSize && heap.array[left] > heap.array[largest])
         {
             largest = left;
         }
-        else
-        {
-            largest = index;
-        }
 
-        if (right <= heap.heapSize && heap.array[right] > heap.array[largest])
+        if (right < heap.heapSize && heap.array[right] > heap.array[largest])
         {
             largest = right;
         }
