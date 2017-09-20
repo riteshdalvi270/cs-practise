@@ -14,7 +14,7 @@ public class Autocomplete
 {
     public static void main(String args[])
     {
-        final String file = "/usr/shared/wordsaa";
+        final String file = "/usr/share/dict/words";
 
         final String prefix = "foo";
         final int count = 3;
@@ -83,6 +83,10 @@ public class Autocomplete
 
     private static boolean doesMatchPrefix(final String line, final String prefix)
     {
+        if (line == null || line.trim().equals(""))
+        {
+            return false;
+        }
 
         char[] lineIn = line.toCharArray();
         char[] prefixIn = prefix.toCharArray();
