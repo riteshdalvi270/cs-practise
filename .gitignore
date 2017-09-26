@@ -2,3 +2,4 @@ clrs/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFi
 clrs/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst
 *.jar
 Maven__com_google_guava_guava_19_0.xml
+.idea/libraries

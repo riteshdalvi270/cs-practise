@@ -9,7 +9,7 @@ public class LongestPalidromicSequence
     public static void main(String args[])
     {
 
-        final String input = "abcda";
+        final String input = "babadada";
 
         System.out.println(findLongestPalidromicSequency(input));
     }
@@ -28,7 +28,6 @@ public class LongestPalidromicSequence
         }
 
         String palidrome = null;
-        int maxLength = 0;
 
         final char[] in = input.toCharArray();
 
@@ -37,45 +36,24 @@ public class LongestPalidromicSequence
 
             char charToStart = in[i];
 
-            int indexToStartComparison = 0;
-
             int start = i;
             int end = input.length() - 1;
 
-            while (start <= end)
+            while (start < end)
             {
-
                 if (in[end] == charToStart)
                 {
+                    String temp  = isPalidrome(input, i, end);
 
-                    final String temp = isPalidrome(input, i, end);
-
-                    if (temp != null && palidrome != null && temp.length() > palidrome.length())
-                    {
+                    if(palidrome == null) {
                         palidrome = temp;
                     }
-                    else if (temp != null && palidrome == null)
-                    {
-                        palidrome = temp;
-                    }
-                }
 
-                if (in[start] == charToStart)
-                {
-
-                    final String temp = isPalidrome(input, i, start);
-
-                    if (temp != null && palidrome != null && temp.length() > palidrome.length())
+                    if (temp != null && palidrome!=null && temp.length() > palidrome.length())
                     {
-                        palidrome = temp;
-                    }
-                    else if (temp != null && palidrome == null)
-                    {
-                        palidrome = temp;
+                         palidrome =  temp;
                     }
                 }
-
-                start++;
                 end--;
             }
         }
@@ -85,7 +63,6 @@ public class LongestPalidromicSequence
 
     private static String isPalidrome(final String input, int start, int end)
     {
-
         int i = start;
         int j = end;
         while (i <= j)
