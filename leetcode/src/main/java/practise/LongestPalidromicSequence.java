@@ -45,6 +45,7 @@ public class LongestPalidromicSequence
             while(start>=0 && end<=input.length()-1 && input.charAt(start) ==  input.charAt(end)) {
 
                 if(end-start+1 > maxLength) {
+
                     index = start;
                     maxLength = end-start +1;
 
