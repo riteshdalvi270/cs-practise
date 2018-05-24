@@ -1,4 +1,4 @@
-package graph;
+package graph.part1;
 
 /**
  * Detect cycle in undirected graph using union-rank. Created by ritesh on 7/15/17.

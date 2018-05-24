@@ -1,4 +1,4 @@
-package graph;
+package graph.part1;
 
 /**
  * Detect cycle in an undirected graph using union-find. Created by ritesh on 7/14/17.

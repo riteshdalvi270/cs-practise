@@ -1,4 +1,4 @@
-package backtracking;
+package backtracking.part1;
 
 /**
  * Knight's tour. Created by ritesh on 7/4/17.

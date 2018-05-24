@@ -1,4 +1,4 @@
-package backtracking;
+package backtracking.part1;
 
 /**
  * Rat in Maze backtracking sum.

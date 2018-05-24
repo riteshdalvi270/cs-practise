@@ -1,4 +1,4 @@
-package backtracking;
+package backtracking.part1;
 
 /**
  * N Queen problem Created by ritesh on 7/5/17.
